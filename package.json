@@ -1,0 +1,44 @@
+{
+  "name": "work-stage",
+  "version": "1.0.0",
+  "main": "export-tables.js",
+  "type": "commonjs",
+  "scripts": {
+    "export": "node export-tables.js",
+    "test": "jest --no-cache",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "private": true,
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "mysql2": "^3.14.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
+    "babel-jest": "^30.0.2",
+    "jest": "^30.0.2"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!mysql2/)"
+    ],
+    "testEnvironment": "node"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  }
+}
